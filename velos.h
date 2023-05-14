@@ -91,15 +91,18 @@ void modifiervelo(velos *v,int borne){
 //**********************************************************
 
 void supprimervelo(velos *v,int *pborne){
-     int i=0,j,k,index;
+     int i=-1,j,k,index;
      printf("Donner l\'index de velo a supprimer: ");
      scanf("%d",&index);
    for(j=0;j<(*pborne);j++){
     if((v+j)->ve_index==index)
         i=j;
    }
-     if(i==(*pborne))
+     if(i==-1)
+     {
         printf("\n\n\t*************** Le velo n\'existe pas !!!***************\n");
+        getch();
+     }
      else{
         for(j=i;j<(*pborne);j++){
             (v+j)->ve_index=(v+j+1)->ve_index;
